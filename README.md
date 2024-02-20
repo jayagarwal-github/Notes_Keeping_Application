@@ -1,4 +1,4 @@
-Notes App 📝
+###Notes App 📝###
 
 Overview
 The Notes App is a simple yet powerful application for organizing your thoughts, ideas, and tasks. Built with Room Database and following the MVVM architecture, it ensures seamless access to your notes even without an internet connection.
