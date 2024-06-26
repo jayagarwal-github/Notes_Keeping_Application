@@ -1,6 +1,7 @@
 package com.example.notes
 
 import android.annotation.SuppressLint
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -21,7 +22,9 @@ class MainActivity : AppCompatActivity() , INotesRVAdapter{
         setContentView(R.layout.activity_main)
 
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.addItemDecoration(SpacesItemDecoration(21))    // It provide space between recycler view item
         recyclerView.layoutManager = LinearLayoutManager(this)
+
         val adapter = NotesRvAdapter(this, this)
         recyclerView.adapter = adapter
 
@@ -36,6 +39,12 @@ class MainActivity : AppCompatActivity() , INotesRVAdapter{
 
         }
 
+    }
+
+    class SpacesItemDecoration(private val space: Int) : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+            outRect.bottom = space
+        }
     }
 
         override fun onItemClicked(note : Note){
